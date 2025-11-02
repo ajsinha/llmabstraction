@@ -15,7 +15,7 @@ import sys
 # Import the properties configurator
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 try:
-    from properties_configurator import PropertiesConfigurator
+    from utils.properties_configurator import PropertiesConfigurator
 except ImportError:
     # Fallback if properties_configurator is not available
     class PropertiesConfigurator:
