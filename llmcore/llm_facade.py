@@ -131,7 +131,7 @@ class LLMFacade(ABC):
         return {
             'model_name': self.model_name,
             'provider': self.provider_name,
-            'config': self.config
+            'llmconfig': self.config
         }
     
     def supports_streaming(self) -> bool:

@@ -113,7 +113,7 @@ assert factory1 is factory2  # Same instance
 - Hides provider complexity
 
 ```python
-# Same interface for all providers
+# Same interface for all llmproviders
 anthropic_facade = anthropic_provider.create_facade('claude-3-5-sonnet')
 google_facade = google_provider.create_facade('gemini-1.5-pro')
 

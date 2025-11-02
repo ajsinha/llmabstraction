@@ -69,7 +69,7 @@ class PropertiesConfigurator:
             FileNotFoundError: If any specified file does not exist
 
         Examples:
-            load_properties("config.properties")
+            load_properties("llmconfig.properties")
             load_properties("base.properties,override.properties")
         """
         # Split by comma and process each file
@@ -249,7 +249,7 @@ class PropertiesConfigurator:
         Get the system/application name.
 
         Returns:
-            Application name from config or 'Abhikarta' as default
+            Application name from llmconfig or 'Abhikarta' as default
         """
         return self.get('app.name', 'Abhikarta')
 

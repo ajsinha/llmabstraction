@@ -1,13 +1,13 @@
 """
 Advanced Usage Example
-Demonstrates advanced features including multiple providers and models
+Demonstrates advanced features including multiple llmproviders and models
 
 © 2025-2030 All rights reserved Ashutosh Sinha
 email: ajsinha@gmail.com
 """
 
 import os
-from llm_abstraction_system.utils import initialize_system
+from llmutils import initialize_system
 
 
 def compare_models_example(system):
@@ -159,7 +159,7 @@ def model_information_example(system):
 
 
 def provider_comparison_example(system):
-    """Compare different providers."""
+    """Compare different llmproviders."""
     print("\n" + "="*60)
     print("Provider Comparison")
     print("="*60)
@@ -220,7 +220,7 @@ def main():
     print("Initializing LLM Abstraction System...")
     system = initialize_system(log_level="INFO")
     
-    print(f"\nSystem initialized with {len(system.list_providers())} providers")
+    print(f"\nSystem initialized with {len(system.list_providers())} llmproviders")
     print(f"Total models available: {len(system.list_models())}")
     
     # Run examples

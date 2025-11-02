@@ -57,7 +57,7 @@ class LLMProviderFactory:
         
         Args:
             provider_name: Name of the provider
-            api_key: API key (optional if in env or config)
+            api_key: API key (optional if in env or llmconfig)
             config: Additional configuration
             use_cache: Whether to use cached instance
             

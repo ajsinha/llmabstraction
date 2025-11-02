@@ -10,8 +10,8 @@ from typing import Dict, List, Optional, Any, Iterator
 import time
 from datetime import datetime
 
-from ..core.llm_provider import LLMProvider
-from ..core.llm_facade import LLMFacade, LLMResponse
+from ..llmcore.llm_provider import LLMProvider
+from ..llmcore.llm_facade import LLMFacade, LLMResponse
 
 
 class MockFacade(LLMFacade):

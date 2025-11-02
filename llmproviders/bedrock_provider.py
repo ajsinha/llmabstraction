@@ -10,8 +10,8 @@ from typing import Dict, List, Optional, Any, Iterator
 from datetime import datetime
 import json
 
-from ..core.llm_provider import LLMProvider
-from ..core.llm_facade import LLMFacade, LLMResponse
+from ..llmcore.llm_provider import LLMProvider
+from ..llmcore.llm_facade import LLMFacade, LLMResponse
 
 
 class BedrockFacade(LLMFacade):
@@ -268,7 +268,7 @@ class BedrockProvider(LLMProvider):
         
         model_config = self._available_models[model_name].copy()
         model_config.update(kwargs)
-        model_config.update(self.config)  # Include provider config
+        model_config.update(self.config)  # Include provider llmconfig
         
         return BedrockFacade(
             model_name=model_name,

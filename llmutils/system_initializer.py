@@ -10,8 +10,8 @@ import os
 import logging
 from typing import Optional
 
-from ..core import LLMProviderFactory, LLMClientFactory
-from ..providers import (
+from ..llmcore import LLMProviderFactory, LLMClientFactory
+from ..llmproviders import (
     MockProvider,
     AnthropicProvider,
     BedrockProvider,
@@ -29,7 +29,7 @@ class LLMSystem:
     
     This class:
     - Loads configuration
-    - Registers all providers
+    - Registers all llmproviders
     - Provides easy access to client factory
     - Sets up logging
     """
@@ -74,7 +74,7 @@ class LLMSystem:
         self.provider_factory = LLMProviderFactory()
         self.client_factory = LLMClientFactory()
         
-        # Register all providers
+        # Register all llmproviders
         self._register_providers()
         
         # Load models configuration into client factory
@@ -131,7 +131,7 @@ class LLMSystem:
         if not self._initialized:
             raise RuntimeError("System not initialized. Call initialize() first.")
         
-        # Get API key from config if not provided
+        # Get API key from llmconfig if not provided
         if provider_name and 'api_key' not in kwargs:
             api_key = self.config_loader.get_api_key(provider_name)
             if api_key:
@@ -144,7 +144,7 @@ class LLMSystem:
         )
     
     def list_providers(self) -> list:
-        """List all available providers."""
+        """List all available llmproviders."""
         if not self._initialized:
             raise RuntimeError("System not initialized")
         return self.provider_factory.get_available_providers()

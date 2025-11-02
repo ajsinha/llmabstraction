@@ -15,7 +15,7 @@ import sys
 # Import the properties configurator
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 try:
-    from utils.properties_configurator import PropertiesConfigurator
+    from llmutils.properties_configurator import PropertiesConfigurator
 except ImportError:
     # Fallback if properties_configurator is not available
     class PropertiesConfigurator:
@@ -62,7 +62,7 @@ class ConfigLoader:
         if config_dir is None:
             config_dir = os.path.join(
                 os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
-                'config'
+                'llmconfig'
             )
         
         self.config_dir = config_dir
@@ -101,20 +101,20 @@ class ConfigLoader:
             if os.path.exists(config_file):
                 with open(config_file, 'r') as f:
                     self._models_config = json.load(f)
-                self.logger.info(f"Loaded models config from {config_file}")
+                self.logger.info(f"Loaded models llmconfig from {config_file}")
             else:
-                self.logger.warning(f"Models config not found: {config_file}")
+                self.logger.warning(f"Models llmconfig not found: {config_file}")
                 self._models_config = {
                     'defaults': {'provider': 'mock', 'model': 'mock-model'},
-                    'providers': {},
+                    'llmproviders': {},
                     'models': {}
                 }
                 
         except Exception as e:
-            self.logger.error(f"Error loading models config: {str(e)}")
+            self.logger.error(f"Error loading models llmconfig: {str(e)}")
             self._models_config = {
                 'defaults': {'provider': 'mock', 'model': 'mock-model'},
-                'providers': {},
+                'llmproviders': {},
                 'models': {}
             }
     
@@ -144,7 +144,7 @@ class ConfigLoader:
         Returns:
             Provider configuration dictionary or None
         """
-        return self._models_config.get('providers', {}).get(provider_name)
+        return self._models_config.get('llmproviders', {}).get(provider_name)
     
     def get_model_config(self, model_name: str) -> Optional[Dict[str, Any]]:
         """
@@ -192,7 +192,7 @@ class ConfigLoader:
         if api_key:
             return api_key
         
-        # Check provider config for api_key_env
+        # Check provider llmconfig for api_key_env
         provider_config = self.get_provider_config(provider_name)
         if provider_config and 'api_key_env' in provider_config:
             env_key = provider_config['api_key_env']
@@ -203,8 +203,8 @@ class ConfigLoader:
         return None
     
     def list_available_providers(self) -> list:
-        """List all configured providers."""
-        return list(self._models_config.get('providers', {}).keys())
+        """List all configured llmproviders."""
+        return list(self._models_config.get('llmproviders', {}).keys())
     
     def list_provider_models(self, provider_name: str) -> list:
         """
@@ -232,5 +232,5 @@ class ConfigLoader:
         self.logger.info("Configuration reloaded")
     
     def __repr__(self) -> str:
-        return (f"<ConfigLoader(providers={len(self.list_available_providers())}, "
+        return (f"<ConfigLoader(llmproviders={len(self.list_available_providers())}, "
                 f"models={len(self.get_all_models())})>")

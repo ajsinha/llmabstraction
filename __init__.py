@@ -6,14 +6,14 @@ A comprehensive, configuration-driven framework for LLM interactions
 email: ajsinha@gmail.com
 
 This system provides:
-- Unified interface for multiple LLM providers
+- Unified interface for multiple LLM llmproviders
 - Configuration-driven model and provider management
 - Interaction history and multi-shot learning
 - Robust error handling and fallback mechanisms
 - Factory, Singleton, Facade, and Delegate patterns
 """
 
-from .core import (
+from .llmcore import (
     LLMProvider,
     LLMFacade,
     LLMResponse,
@@ -23,7 +23,7 @@ from .core import (
     LLMClientFactory
 )
 
-from .utils import (
+from .llmutils import (
     ConfigLoader,
     LLMSystem,
     initialize_system

@@ -1,6 +1,6 @@
 """
 LLM Provider Abstract Base Class
-Defines the interface for all LLM providers in the system
+Defines the interface for all LLM llmproviders in the system
 
 © 2025-2030 All rights reserved Ashutosh Sinha
 email: ajsinha@gmail.com
@@ -13,7 +13,7 @@ import logging
 
 class LLMProvider(ABC):
     """
-    Abstract base class for LLM providers.
+    Abstract base class for LLM llmproviders.
     
     A provider manages API keys, access rights, and model instantiation
     for a specific LLM service provider (e.g., OpenAI, Anthropic, AWS Bedrock).

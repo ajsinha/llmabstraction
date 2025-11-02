@@ -1,6 +1,6 @@
 """
 LLM Abstraction System - Providers Module
-Implementations of LLM providers for various platforms
+Implementations of LLM llmproviders for various platforms
 
 © 2025-2030 All rights reserved Ashutosh Sinha
 email: ajsinha@gmail.com

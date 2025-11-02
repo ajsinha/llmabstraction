@@ -6,7 +6,7 @@ Demonstrates simple usage of the LLM abstraction system
 email: ajsinha@gmail.com
 """
 
-from llm_abstraction_system.utils import initialize_system
+from llmutils import initialize_system
 
 
 def main():

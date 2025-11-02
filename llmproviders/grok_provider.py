@@ -10,8 +10,8 @@ from typing import Dict, List, Optional, Any, Iterator
 from datetime import datetime
 import requests
 
-from ..core.llm_provider import LLMProvider
-from ..core.llm_facade import LLMFacade, LLMResponse
+from ..llmcore.llm_provider import LLMProvider
+from ..llmcore.llm_facade import LLMFacade, LLMResponse
 
 
 class GrokFacade(LLMFacade):

@@ -20,7 +20,7 @@ class LLMClientFactory:
     Singleton factory for creating LLM client instances.
     
     This factory uses configuration to create clients with appropriate
-    providers and models. It supports default provider/model fallback
+    llmproviders and models. It supports default provider/model fallback
     and maintains client instances.
     """
     
@@ -164,7 +164,7 @@ class LLMClientFactory:
     
     def list_available_providers(self) -> list:
         """
-        List all available providers.
+        List all available llmproviders.
         
         Returns:
             List of provider names
